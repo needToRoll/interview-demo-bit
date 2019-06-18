@@ -1,0 +1,7 @@
+{
+  "firstName": "Test",
+  "lastName": "Person",
+  "age": 20,
+  "email": "%email%",
+  "gender": "MALE"
+}
