@@ -1,0 +1,37 @@
+version: "3.7"
+volumes:
+  rabbitmq-data:
+  postgres-data:
+services:
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:3.7-management
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+  eventconsumer:
+    image: needtoroll/microservice-demo-eventconsumer:v3
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_APPLICATION_JSON: '{"spring": {"rabbitmq": {"host":"rabbitmq"}}}'
+    depends_on:
+      - rabbitmq
+  provider:
+    image: needtoroll/microservice-demo-provider:v1
+    ports:
+      - "8083:8083"
+    environment:
+      SPRING_APPLICATION_JSON: '{"spring": {"rabbitmq": {"host":"rabbitmq"}}}'
+    depends_on:
+      - rabbitmq
+  restconsumer:
+    image: needtoroll/microservice-demo-restconsumer:v1
+    ports:
+      - "8082:8082"
+    environment:
+      SPRING_APPLICATION_JSON: '{"spring": {"rabbitmq": {"host":"rabbitmq"}}}'
+    depends_on:
+      - rabbitmq
