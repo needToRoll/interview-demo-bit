@@ -1,6 +1,5 @@
 {
-  "firstName": "Test",
-  "lastName": "Person",
+  "name:": "Testperson",
   "age": 20,
   "email": "%email%",
   "gender": "MALE"

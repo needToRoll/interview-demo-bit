@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ch.admin.ezv.eets</groupId>
-    <artifactId>eets-systemintegrationtest</artifactId>
+    <groupId>ch.admin.bit.interview</groupId>
+    <artifactId>demot-test</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
